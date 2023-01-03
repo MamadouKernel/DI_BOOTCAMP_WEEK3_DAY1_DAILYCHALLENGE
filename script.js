@@ -3,56 +3,41 @@
  * Exercie: Daily Challenge
  */
 
-//Créez un tableau contenant les planètes du système solaire :
+/* **************** Daily Challenge ***************** */
 
-const planets = ['Mercury', 'Venus', 'Earth', 'Mars', 'Jupiter', 'Saturn', 'Uranus', 'Neptune'];
-
-//Créez une div pour chaque planète en utilisant la méthode createElement et en lui attribuant la classe planet :
-
-const planetDivs = planets.map((planet) => {
-    const div = document.createElement('div');
-    div.classList.add('planet');
-    return div;
-});
-
-//Ajoutez une classe de couleur de fond différente à chaque div de planète :
-
-const planetColors = ['red', 'orange', 'yellow', 'green', 'blue', 'purple', 'pink', 'brown'];
-
-planetDivs.forEach((div, i) => {
-    div.classList.add(planetColors[i]);
-});
+function displayPlanets() {
 
 
-//Ajoutez chaque div de planète au <section> dans le HTML :
+    //Créez un tableau contenant les planètes du système solaire :
+    let planets = ["Mercure", "Vénus", "la Terre", "Mars", "Ceres", "Jupiter", "Saturne", "Uranus", "Neptune", "Pluton", "Charon"];
 
-const listPlanets = document.querySelector('.listPlanets');
-planetDivs.forEach((div) => {
-    listPlanets.appendChild(div);
-});
+    //Ajoutez une classe de couleur de fond différente à chaque div de planète :
 
+    let planetsColors = ["white", "red", "orange", "pink", "grey", "yellow", "blue", "brown", "aqua", "purple", "green"];
 
-//Bonus :
+    let planetContainer = document.querySelector(".listPlanets");
+    planetContainer.style.display = "flex";
+    planetContainer.style.flexWrap = "wrap";
 
-    //Créez un tableau d'objets représentant les planètes et leurs lunes :
+    //Créez une div pour chaque planète en utilisant la méthode createElement et en lui attribuant la classe planet :
+    for(let i = 0; i < planets.length; i++) {
+        
+        let div = document.createElement("div");
+        
+        //Ajoutez chaque div de planète au <section> dans le HTML :
 
-    // const solarSystem = [{planet: 'Mercury', moons: ['Hermes']},
-    // {planet: 'Venus', moons: ['Hera']},{planet: 'Earth', moons: ['Luna']},
-    // {planet: 'Mars', moons: ['Deimos', 'Phobos']},{planet: 'Jupiter', moons: ['Io', 'Europa', 'Ganymede', 'Callisto']},
-    // {planet: 'Saturn', moons: ['Titan', 'Rhea', 'Mimas', 'Enceladus']},{planet: 'Uranus', moons: ['Ariel', 'Miranda', 'Titania', 'Oberon']},
-    // {planet: 'Neptune', moons: ['Triton', 'Proteus']},];
+        let divName = document.createTextNode(planets[i]);
+        div.appendChild(divName);
+        div.classList.add("planet");
+        div.style.background = planetsColors[i];
+        div.style.margin = "5px";
+        div.style.fontWeight = "bold";
+        planetContainer.appendChild(div);
 
+    }
 
-    /*Créez une div de planète et une div de lune pour chaque planète et 
-    chaque lune en utilisant la méthode createElement et en leur attribuant 
-    les classes planet et moon respectivement :*/
+}
 
+displayPlanets();
 
-    // const planetMoonDivs = solarSystem.map((planet) => {
-    //     // Create planet div
-    //     const planetDiv = document.createElement('div');
-    //     planetDiv.classList.add('planet');
-
-    //     // Create moon divs
-    //     const moonDiv      
-
+/* **************** End Daily Challenge ******************** */
